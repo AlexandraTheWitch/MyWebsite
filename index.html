@@ -7,19 +7,35 @@
 
     <meta charset="UTF-8">
 
-    <title> My Webpage</title>
+    <title> Alexandra's Page</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Alex's Page" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
 
     <!-- Link to External CSS File -->
     <link rel="stylesheet" href="styles/homepage.css">
     
     <!-- Google Fonts Import -->
+    <!-- Caveat Cursive -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
-
+    <!--Press Start 2P-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
   </head>
   
+
+
+
+
   <body class="homepage-body">
       
 
@@ -38,7 +54,8 @@
 
     <!-- Search Bar -->   
     <div class="search-bar-div">
-       <input class="search-bar" type="text" placeholder="This doesn't do anything yet...">
+       <input type="text" class="search-bar" id="pokemonInput" placeholder ="Search any Pokemon!">
+       <button onclick="searchPokemon()">🔍</button> <!--TEMPORARY ICON!!!-->
     </div>
 
    </div>
@@ -70,6 +87,34 @@
 
 
 
+    <script>
+      function searchPokemon() {
+        const input = document.getElementById("pokemonInput");
+        const query = input.value.trim().toLowerCase();
+
+        if (query === "") {
+          alert("You need to write something,Silly!");
+          return;
+        }
+
+        const capitalized = query.charAt(0).toUpperCase() + query.slice(1);
+        const url = `https://bulbapedia.bulbagarden.net/wiki/${capitalized}_(Pokémon)`;
+
+        window.open(url, "_blank");
+      }
+
+        //Allowing us to use Enter
+        document.getElementById("pokemonInput").addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            searchPokemon();
+          }
+        });
+
+    
+    </script>
+
+
+    </script>
   </body>
 
 
